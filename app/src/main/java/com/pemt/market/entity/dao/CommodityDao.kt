@@ -1,21 +1,21 @@
 package com.pemt.market.entity.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+import android.arch.lifecycle.LiveData
+import android.arch.persistence.room.*
 import com.pemt.market.entity.Commodity
-import com.pemt.market.entity.db.AppDatabase
 
 @Dao
 interface CommodityDao {
 
-    companion object {
-        val dao by lazy {
-            AppDatabase.db.commodityDao()
-        }
-    }
-
     @Query("SELECT * FROM commodity")
-    fun queryAll(): List<Commodity>
+    fun queryAll(): LiveData<List<Commodity>>
 
+    @Query("SELECT * FROM commodity WHERE barcode = :barcode")
+    fun queryByBarcode(barcode: String): Commodity?
 
+    @Update
+    fun update(commodity: Commodity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(commodity: Commodity)
 }

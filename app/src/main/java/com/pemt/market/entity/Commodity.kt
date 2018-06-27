@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity
-data class Commodity(@PrimaryKey var id: Int,
+data class Commodity(@PrimaryKey var id: Int? = null,
                      @ColumnInfo var name: String,
                      @ColumnInfo var amount: Int,
                      @ColumnInfo var barcode: String)

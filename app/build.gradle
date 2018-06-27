@@ -26,6 +26,7 @@ android {
 
 dependencies {
     def room_version = "1.1.1"
+    def versions_lifecycle = "1.1.1"
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -37,11 +38,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     implementation 'com.android.support:cardview-v7:27.1.1'
-    //Room
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    kapt "android.arch.persistence.room:compiler:$room_version"
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.3"
+    // Architecture components
+    implementation "android.arch.lifecycle:runtime:$versions_lifecycle"
+    implementation "android.arch.lifecycle:extensions:$versions_lifecycle"
+    kapt "android.arch.lifecycle:compiler:$versions_lifecycle"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
 }
 
 kapt {
