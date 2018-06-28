@@ -34,8 +34,14 @@ class MainViewModel : ViewModel() {
                 db.commodityDao().update(commodity)
             } else {
                 db.commodityDao().insert(
-                        Commodity(name = "", amount = 1, barcode = barcode))
+                        Commodity(area = 0, name = "", amount = 1, barcode = barcode))
             }
+        }
+    }
+
+    fun updateCommodity(commodity: Commodity) {
+        launch {
+            db.commodityDao().update(commodity)
         }
     }
 }
