@@ -1,22 +1,22 @@
 package com.pemt.market.flow
 
-import android.arch.lifecycle.ViewModelProvider
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.TextInputEditText
-import android.support.v7.app.AppCompatActivity
-import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.integration.android.IntentIntegrator
 import com.pemt.market.R
 import com.pemt.market.app.WrapContentLinearLayoutManager
 import com.pemt.market.entity.Commodity
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.*
-import org.jetbrains.anko.design.snackbar
-import org.jetbrains.anko.design.textInputEditText
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +29,14 @@ class MainActivity : AppCompatActivity() {
         MainRecyclerAdapter(this)
     }
 
+    @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+//        val refreshedToken = FirebaseInstanceId.getInstance().token
+//        Log.v("hotsx-token", refreshedToken)
 
         initializeView()
         initializeObserve()
@@ -50,17 +54,19 @@ class MainActivity : AppCompatActivity() {
         mAdapter.setOnChangeClickListener(onChange)
 
         groupTv.setOnClickListener {
-            val countries = listOf("欧莱雅", "清扬", "海飞丝", "水泥")
-            selector("柜组选择", countries) { _, i ->
-                groupTv.text = countries[i]
-            }
+            val countries = arrayOf("欧莱雅", "清扬", "海飞丝", "水泥")
+            AlertDialog.Builder(this)
+                    .setSingleChoiceItems(countries, 0) { _, point ->
+                        groupTv.text = countries[point]
+                    }.show()
         }
 
         areaTv.setOnClickListener {
-            val countries = listOf("区域 211", "区域 111", "区域 2", "区域 45")
-            selector("区域选择", countries) { _, i ->
-                groupTv.text = countries[i]
-            }
+            val countries = arrayOf("区域 211", "区域 111", "区域 2", "区域 45")
+            AlertDialog.Builder(this)
+                    .setSingleChoiceItems(countries, 0) { _, point ->
+                        areaTv.text = countries[point]
+                    }.show()
         }
 
     }
@@ -76,35 +82,55 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val onChange = fun(isAdd: Boolean, commodity: Commodity) {
-        alert {
-            var edit: TextInputEditText? = null
-            title = if (isAdd) "增加" else "减少"
-            customView {
-                frameLayout {
-                    padding = dip(32f)
-                    edit = textInputEditText {
-                        inputType = InputType.TYPE_CLASS_NUMBER
+//        alert {
+//            var edit: EditText? = null
+//            title = if (isAdd) "增加" else "减少"
+//            customView {
+//                frameLayout {
+//                    padding = dip(32f)
+//                    edit = editText {
+//                        inputType = InputType.TYPE_CLASS_NUMBER
+//                    }
+//                }
+//            }
+//            noButton { }
+//            yesButton {
+//                if (edit?.text.isNullOrEmpty()) {
+//                    return@yesButton
+//                }
+//                val count = if (isAdd) {
+//                    commodity.amount + edit?.text.toString().toInt()
+//                } else {
+//                    commodity.amount - edit?.text.toString().toInt()
+//                }
+//                if (count < 0) {
+//                    Snackbar.make(fab, "数量有误...", Snackbar.LENGTH_SHORT).show()
+//                } else {
+//                    commodity.amount = count
+//                    viewModel.updateCommodity(commodity)
+//                }
+//            }
+//        }.show()
+        val editText = EditText(this)
+        AlertDialog.Builder(this)
+                .setView(editText)
+                .setNegativeButton("取消", null)
+                .setPositiveButton("确定") { _, _ ->
+                    if (editText.text.isNullOrEmpty()) {
+                        return@setPositiveButton
                     }
-                }
-            }
-            noButton { }
-            yesButton {
-                if (edit?.text.isNullOrEmpty()) {
-                    return@yesButton
-                }
-                val count = if (isAdd) {
-                    commodity.amount + edit?.text.toString().toInt()
-                } else {
-                    commodity.amount - edit?.text.toString().toInt()
-                }
-                if (count < 0) {
-                    snackbar(fab, "数量有误...").show()
-                } else {
-                    commodity.amount = count
-                    viewModel.updateCommodity(commodity)
-                }
-            }
-        }.show()
+                    val count = if (isAdd) {
+                        commodity.amount + editText.text.toString().toInt()
+                    } else {
+                        commodity.amount - editText.text.toString().toInt()
+                    }
+                    if (count < 0) {
+                        Snackbar.make(fab, "数量有误...", Snackbar.LENGTH_SHORT).show()
+                    } else {
+                        commodity.amount = count
+                        viewModel.updateCommodity(commodity)
+                    }
+                }.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

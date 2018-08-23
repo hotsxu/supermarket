@@ -1,7 +1,7 @@
 package com.pemt.market.entity.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.pemt.market.entity.Commodity
 
 @Dao

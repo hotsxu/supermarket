@@ -1,7 +1,7 @@
 package com.pemt.market.flow
 
-import android.arch.lifecycle.MediatorLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.ViewModel
 import com.pemt.market.entity.Commodity
 import com.pemt.market.entity.db.AppDatabase
 import kotlinx.coroutines.experimental.launch

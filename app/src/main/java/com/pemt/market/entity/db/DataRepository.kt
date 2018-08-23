@@ -1,7 +1,7 @@
 package com.pemt.market.entity.db
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MediatorLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import com.pemt.market.entity.Commodity
 
 object DataRepository {
@@ -20,6 +20,5 @@ object DataRepository {
     fun getCommoditys(): LiveData<List<Commodity>> {
         return commoditysLiveData
     }
-
 
 }

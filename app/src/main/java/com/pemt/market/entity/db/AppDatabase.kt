@@ -1,8 +1,8 @@
 package com.pemt.market.entity.db
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.pemt.market.app.MyApp.Companion.App
 import com.pemt.market.entity.Commodity
 import com.pemt.market.entity.dao.CommodityDao
