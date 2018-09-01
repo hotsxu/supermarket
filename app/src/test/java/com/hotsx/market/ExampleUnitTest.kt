@@ -1,4 +1,4 @@
-package com.pemt.market
+package com.hotsx.market
 
 import org.junit.Test
 

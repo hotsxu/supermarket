@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.pemt.market">
+    package="com.hotsx.market">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -27,7 +27,7 @@
         android:required="false" />
 
     <application
-        android:name=".app.MyApp"
+        android:name="com.hotsx.market.app.MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,14 +36,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <service android:name=".flow.service.MyFirebaseService">
+        <service android:name="com.hotsx.market.flow.service.MyFirebaseService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <activity
-            android:name=".flow.MainActivity"
+            android:name="com.hotsx.market.flow.MainActivity"
             android:label="Market"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.pemt.market.app
+package com.hotsx.market.app
 
 import android.app.Application
 

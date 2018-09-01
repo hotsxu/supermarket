@@ -1,4 +1,4 @@
-package com.pemt.market.flow
+package com.hotsx.market.flow
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.integration.android.IntentIntegrator
-import com.pemt.market.R
-import com.pemt.market.app.WrapContentLinearLayoutManager
-import com.pemt.market.entity.Commodity
+import com.hotsx.market.R
+import com.hotsx.market.app.WrapContentLinearLayoutManager
+import com.hotsx.market.entity.Commodity
 import kotlinx.android.synthetic.main.activity_main.*
 
 

@@ -1,4 +1,4 @@
-package com.pemt.market.entity
+package com.hotsx.market.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

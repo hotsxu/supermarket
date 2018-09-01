@@ -1,8 +1,8 @@
-package com.pemt.market.entity.db
+package com.hotsx.market.entity.db
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.pemt.market.entity.Commodity
+import com.hotsx.market.entity.Commodity
 
 object DataRepository {
     private val commoditysLiveData by lazy {

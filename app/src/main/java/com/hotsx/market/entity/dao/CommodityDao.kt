@@ -1,8 +1,8 @@
-package com.pemt.market.entity.dao
+package com.hotsx.market.entity.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.pemt.market.entity.Commodity
+import com.hotsx.market.entity.Commodity
 
 @Dao
 interface CommodityDao {

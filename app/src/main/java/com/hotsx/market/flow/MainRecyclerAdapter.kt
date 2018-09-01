@@ -1,14 +1,14 @@
-package com.pemt.market.flow
+package com.hotsx.market.flow
 
 import android.content.Context
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import com.pemt.market.R
-import com.pemt.market.app.BaseRecyclerAdapter
-import com.pemt.market.app.ListenerWithPosition
-import com.pemt.market.app.MyRecyclerViewHolder
-import com.pemt.market.entity.Commodity
+import com.hotsx.market.R
+import com.hotsx.market.app.BaseRecyclerAdapter
+import com.hotsx.market.app.ListenerWithPosition
+import com.hotsx.market.app.MyRecyclerViewHolder
+import com.hotsx.market.entity.Commodity
 
 class MainRecyclerAdapter(private var context: Context) : BaseRecyclerAdapter<Commodity>(context, R.layout.item_main),
         ListenerWithPosition.OnClickWithPositionListener {

@@ -1,9 +1,9 @@
-package com.pemt.market.flow
+package com.hotsx.market.flow
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
-import com.pemt.market.entity.Commodity
-import com.pemt.market.entity.db.AppDatabase
+import com.hotsx.market.entity.Commodity
+import com.hotsx.market.entity.db.AppDatabase
 import kotlinx.coroutines.experimental.launch
 
 class MainViewModel : ViewModel() {

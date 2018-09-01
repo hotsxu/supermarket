@@ -12,7 +12,7 @@ apply(plugin = "com.android.application")
 apply(plugin = "kotlin-android")
 apply(plugin = "kotlin-android-extensions")
 apply(plugin = "kotlin-kapt")
-apply(plugin = "com.google.gms.google-services")
+//apply(plugin = "com.google.gms.google-services")
 
 configure<AppExtension> {
     compileSdkVersion(28)
@@ -41,14 +41,14 @@ dependencies {
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation("androidx.appcompat:appcompat:1.0.0-rc01")
+    implementation("androidx.appcompat:appcompat:1.0.0-rc02")
     implementation("androidx.constraintlayout:constraintlayout:1.1.2")
     implementation("com.google.android.material:material:1.0.0-rc01")
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.1.0-alpha4")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0-alpha4")
     implementation("com.journeyapps:zxing-android-embedded:3.6.0")
-    implementation("androidx.cardview:cardview:1.0.0-rc01")
+    implementation("androidx.cardview:cardview:1.0.0-rc02")
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.3")
     //Architecture components
@@ -58,7 +58,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.0.0-rc01")
     kapt("androidx.room:room-compiler:2.0.0-rc01")
     //firebase-messaging
-    implementation("com.google.firebase:firebase-messaging:17.3.0")
+//    implementation("com.google.firebase:firebase-messaging:17.3.0")
 }
 
 configure<KaptExtension> {
